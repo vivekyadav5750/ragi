@@ -1,0 +1,13 @@
+navbar:-> 2nd list
+hover:font-bold
+
+
+navbar
+
+slide
+
+your categoris : product
+
+review :
+
+footer
