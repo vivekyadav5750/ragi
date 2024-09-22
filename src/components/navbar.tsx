@@ -1,5 +1,10 @@
 "use client";
-import { ChartNoAxesColumnDecreasing, LogIn, ShoppingBag } from "lucide-react";
+import {
+  ChartNoAxesColumnDecreasing,
+  LogIn,
+  ShoppingBag,
+  UserRoundPen
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./theme-toggle";
 import Link from "next/link";
@@ -15,6 +20,9 @@ export default function Navbar() {
     { title: "Help", path: "/help" }
   ];
 
+  const [user, setUser] = useState(1);
+  // console.log(setUser);
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -32,7 +40,7 @@ export default function Navbar() {
         className="from-background/10 via-background/50 to-background/80  top-0 z-50 flex h-16 w-full shrink-0 items-center justify-between  border-b bg-gradient-to-b px-4 backdrop-blur-xl fixed"
         onClick={() => handleOuterClickSearchOpen()}
       >
-        {/* left side logo and nav items */}
+        {/* left side logo and RAGI MART */}
         <div className=" flex space-x-2  justify-center items-center ">
           <div>
             <Link href={"/"}>
@@ -74,15 +82,32 @@ export default function Navbar() {
             setSearchText={setSearchText}
           />
 
-          <div>
-            <Button asChild className="hidden md:flex">
-              <Link href={"/login"}>
-                <LogIn className="mr-2" size={14} />
-                Login
+          {/* Login Button */}
+          {!user ? (
+            <div>
+              <Button asChild className="hidden md:flex">
+                <Link href={"/login"}>
+                  <LogIn className="mr-2" size={14} />
+                  Login
+                </Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="md:flex items-center justify-center space-x-2">
+              <Button asChild className="hidden md:flex">
+                <Link href={"/profile"}>
+                  <UserRoundPen className="mr-2" size={14} />
+                  Profile
+                </Link>
+              </Button>
+
+              <Link href={"/cart"} className="flex">
+                <ShoppingBag className="mr-2" size={24} />
               </Link>
-            </Button>
-          </div>
-          <div>
+            </div>
+          )}
+
+          <div className="hidden md:flex">
             <ModeToggle />
           </div>
           <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -91,7 +116,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* for small screen */}
+      {/* for small screen   */}  {/* // on click any button make false ismenuopen*/}
       {/* // make nav on isMenuOpen, open box with crossmark to close it */}
       <div
         className={`fixed top-16 left-0 w-full h-full bg-background/90 backdrop-blur-xl z-50 ${
@@ -106,19 +131,46 @@ export default function Navbar() {
           >
             <ChartNoAxesColumnDecreasing className="rotate-45" />
           </div>
+
           {NAV_ITEMS.map((item) => (
-            <Link key={item.title} href={item.path}>
+            <Link key={item.title} href={item.path} onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <span className="text-xl font-medium hover:text-slate-500 ">
                 {item.title}
               </span>
             </Link>
           ))}
-          <Button asChild className="">
-            <Link href={"/login"}>
-              <LogIn className="mr-2" size={14} />
-              Login
-            </Link>
-          </Button>
+
+          {!user ? (
+            <div>
+              <Button asChild className="">
+                <Link href={"/login"} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  <LogIn className="mr-2" size={14} />
+                  Login
+                </Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center space-y-4">
+              <Button asChild className="">
+                <Link href={"/profile"} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  <UserRoundPen className="mr-2" size={14} />
+                  Profile
+                </Link>
+              </Button>
+
+              <Button asChild className="">
+                <Link href={"/cart"} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  <ShoppingBag className="mr-2" size={14} />
+                  Cart
+                </Link>
+              </Button>
+            </div>
+          )}
+
+          <div className="flex items-center justify-center" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <ModeToggle />
+          </div>
+
         </div>
       </div>
     </>

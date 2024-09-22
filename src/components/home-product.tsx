@@ -23,7 +23,7 @@ export default function Home_Product() {
         "Ragi cookies are a healthy and tasty snack option made from ragi flour. They are rich in fiber, protein, and other essential nutrients, making them a great choice for those looking for a nutritious snack."
     },
     {
-      img: "/images/ragi_cake.jpg",
+      img: "/images/ragi_cake.jpeg",
       title: "Ragi Cake",
       description:
         "Ragi idli is a healthy and delicious breakfast option made from ragi flour. It is rich in fiber, protein, and other essential nutrients, making it a nutritious choice for breakfast or as a snack."
@@ -43,16 +43,43 @@ export default function Home_Product() {
   ];
   return (
     <>
-      <div className="mt-16 flex flex-col items-center justify-center ">
-        <LetterPullup words={"Ragi Products"} className="font-mono" delay={0.2} />
+      <div className="mt-8 flex flex-col items-center justify-center md:p-8">
+        <LetterPullup
+          words={"Ragi Products"}
+          className="font-mono text-red-400"
+          delay={0.2}
+        />
 
         <div className="flex -mt-2 ">
           {/* for small screen show in row wise single image , for medium show grid wise  */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
             {Products.map((item, index) => (
-              <div key={index} className="bg-gray- p-4 rounded-lg space-y-1 text-center">
-                <Image src={item.img} alt="Ragi" width={500} height={300}  className="rounded-xl"/>
-                <h1 className="text-lg font-mono font-bold ">{item.title}  </h1>
+              <div
+                key={index}
+                className="relative bg-white p-4 rounded-lg text-center shadow-lg group"
+              >
+                {/* Product Image */}
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={500}
+                    height={300}
+                    className="rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                  />
+
+                  {/* Quick View button */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+                    Shop {item.title}
+                  </div>
+                </div>
+
+                {/* Product Info */}
+                <div className="mt-4">
+                  <p className="text-gray-500 text-xs">{item.description}</p>
+                  <h2 className="text-lg font-bold">{item.title}</h2>
+                  {/* <p className="text-black font-semibold">{item.price}</p> */}
+                </div>
               </div>
             ))}
           </div>

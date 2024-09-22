@@ -11,3 +11,16 @@ your categoris : product
 review :
 
 footer
+
+
+link
+icon-logo -> https://www.flaticon.com/search?word=skin%20health
+
+
+-> later on use whatsapp symbol logo , so add p-8 , reduce width from left and right slide
+-> use 5 or 4 grid 
+->  // on click any button make false ismenuopen
+modetoggle button issuse ->apply func on click on fulla area not on toggle icon
+
+-> Quick view Part 
+-> profile section

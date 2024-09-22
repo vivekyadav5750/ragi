@@ -15,6 +15,9 @@ import {
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
+  {/* check which is theme is set , dark or light */}
+  // const theme = useTheme();
+  // console.log('theme', theme)
 
   return (
     <DropdownMenu>
