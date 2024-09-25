@@ -7,7 +7,7 @@ export default function AccountInfoForm({ModeToggle} :AccountPageAllProps) {
       
       {/* Account information */}
       <div>
-        <h2 className={`text-xl font-semibold mb-4 font-serif border-2 p-2 ${ModeToggle === "light" ? "bg-gray-200" : "bg-gray-400"}`}>
+        <h2 className={`text-xl rounded-md font-semibold mb-4 font-serif border-2 p-2 ${ModeToggle === "light" ? "bg-gray-200" : "bg-gray-400"}`}>
           Account Information
         </h2>
         <form className="space-y-4 border-2 p-2">
@@ -76,7 +76,7 @@ export default function AccountInfoForm({ModeToggle} :AccountPageAllProps) {
 
       {/* change password section */}
       <div>
-      <h2 className={`text-xl font-semibold mb-4 font-serif border-2 p-2 ${ModeToggle === "light" ? "bg-gray-200" : "bg-gray-400"}`}>
+      <h2 className={`text-xl rounded-md font-semibold mb-4 font-serif border-2 p-2 ${ModeToggle === "light" ? "bg-gray-200" : "bg-gray-400"}`}>
           Change Password
         </h2>
         <form className="space-y-4 border-2 p-2">

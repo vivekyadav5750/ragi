@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+// import shopData from "@/data/shopData";
 
 export default function ProductbyId() {
   const product = {

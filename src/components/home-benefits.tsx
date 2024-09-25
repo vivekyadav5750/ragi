@@ -85,7 +85,7 @@ export default function Home_Benefits() {
           {ragiBenefits.map((note, index) => (
             <div
               key={index}
-              className="flex flex-col justify-center items-center text-center p-4 rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-orange-100 "
+              className="flex flex-col justify-center items-center text-center p-4 rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-green-100 "
             >
               <div className="mb-4">
                 <Image

@@ -1,26 +1,28 @@
-navbar:-> 2nd list
-hover:font-bold
-
-
-navbar
-
-slide
-
-your categoris : product
-
-review :
-
-footer
-
-
-link
 icon-logo -> https://www.flaticon.com/search?word=skin%20health
 
 
--> later on use whatsapp symbol logo , so add p-8 , reduce width from left and right slide
--> use 5 or 4 grid 
-->  // on click any button make false ismenuopen
 modetoggle button issuse ->apply func on click on fulla area not on toggle icon
 
 -> Quick view Part 
--> profile section
+
+========completed=======
+ -> update shopData -> relatedProducts -> productId-relatedProductsID
+
+-> by clicking on any product (in all product <shop>)
+    -> we have to pass -> productId//relatedProductsID 
+    -> then we have to retrieved that from param
+    -> then separate by symbol // or @ 
+    -> then search with productId and then relatedProductsID.
+
+-> create link dynamic
+
+================
+-> search and homepage categoris item click (go to same page (specific productName))
+-> search .. cookies. -> click on suggestion box  (cookies)
+    ->  which suggestionbox we have pass productId of product (not relatedProducts id) .
+    -> then by productId we match and fetch relatedProducts of that productId.
+    -> path -> search(folder)/[productName].tsx
+
+-> make price int not string (update ts also)
+-> whislist
+-> order (cart -> purchase)
