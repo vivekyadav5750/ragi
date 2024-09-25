@@ -1,40 +1,40 @@
-import Image from "next/image";
 import React from "react";
-import { Heart } from "lucide-react";
 import shopData from "@/data/shopData";
+import Image from "next/image";
 import Link from "next/link";
+import { Heart } from "lucide-react";
 
-export default function Shop() {
+export default function ProductName({ params }: { params: { productId: string }}) 
+{
+  const { productId } = params;
+  console.log("productId", productId);
+
+  const products = shopData.find((product) => product.productId === productId);
+
   return (
+    // <div className='mt-16'>productId : {productId}</div>
     <div className="mt-16 flex flex-col items-center justify-center md:p-10">
-      <h1 className="font-mono text-3xl text-blue-500 ">All Products</h1>
+      <h1 className="font-mono text-3xl text-blue-500 ">
+        Search Product : {products?.productName}
+      </h1>
 
       {/* Container for Left Side and Right Side */}
-      {shopData.map((product, index) => (
-        <div
-          key={index}
-          className="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full p-4 border"
-        >
+      {products && (
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full p-4 border">
           {/* Left Side (Product Details) */}
           <div className="lg:col-span-1 bg-gray-100 p-4 rounded-lg shadow-lg md:flex md:flex-col items-center justify-center md:space-y-8">
             <h1 className="text-2xl md:text-4xl font-mono font-bold text-gray-800">
-              {product.productName}
+              {products.productName}
             </h1>
             <p className="text-gray-600 mt-2 text-base text-justify">
-              {product.description}
+              {products.description}
             </p>
-            {/* Product Features */}
-            {/* <ul className="mt-4 space-y-2 text-gray-500">
-              {product.features.map((feature, i) => (
-                <li key={i} className="list-disc">{feature}</li>
-              ))}
-            </ul> */}
           </div>
 
           {/* Right Side (Related Products Grid, 3 Columns) */}
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {product.relatedProducts.map((relatedProduct, index) => (
+              {products.relatedProducts.map((relatedProduct, index) => (
                 <div
                   key={index}
                   className="relative bg-white p-4 rounded-lg text-center group"
@@ -50,7 +50,7 @@ export default function Shop() {
                   <div className="relative overflow-hidden rounded-lg">
                     {/* attach link by click on it redirect to dynamic link */}
                     <Link
-                      href={`/productid/${product.productId}-${relatedProduct.productId}`}
+                      href={`/dynamic/${products.productId}-${relatedProduct.productId}`}
                     >
                       <Image
                         src={relatedProduct.img[0]}
@@ -60,31 +60,27 @@ export default function Shop() {
                         className="rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
                       />
                     </Link>
-
                     {/* Quick View button */}
                     <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
                       Quick View
                     </div>
                   </div>
 
-                  {/* Related Product Info */}
-                  <div className="mt-4">
-                    <p className="text-gray-500 text-xs">
-                      {relatedProduct.description}
-                    </p>
-                    <h2 className="text-lg font-bold">
-                      {relatedProduct.title}
-                    </h2>
-                    <p className="text-black font-semibold">
-                      {relatedProduct.price}
-                    </p>
-                  </div>
+                  {/* Product Title */}
+                  <h1 className="text-lg font-semibold mt-2">
+                    {relatedProduct.title}
+                  </h1>
+
+                  {/* Product Price */}
+                  <p className="text-red-600 font-bold mt-1">
+                    ₹{relatedProduct.price}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      ))}
+      )}
     </div>
   );
 }

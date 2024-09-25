@@ -26,3 +26,6 @@ modetoggle button issuse ->apply func on click on fulla area not on toggle icon
 -> make price int not string (update ts also)
 -> whislist
 -> order (cart -> purchase)
+
+
+

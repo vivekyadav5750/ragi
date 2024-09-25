@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const relatedProduct = product?.relatedProducts.find(
     (relatedProduct) => relatedProduct.productId === relatedProductId
   );
-  console.log("relatedProduct", relatedProduct);
+  // console.log("relatedProduct", relatedProduct);
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -39,9 +39,6 @@ export default function Page({ params }: { params: { id: string } }) {
     }
   };
 
-  // return (
-  //   <div className="mt-16">Page : {params.id}</div>
-  // );
   return (
     <div className="container mx-auto p-8 mt-16">
       {/* if product is not found then show no product found */}
@@ -50,7 +47,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Side - Image Slider */}
           <div className="flex flex-col items-center">
-            <div className="relative w-full h-96">
+            <div className="relative w-full h-96 ">
               <Image
                 src={relatedProduct.img[selectedImageIndex]}
                 alt={relatedProduct?.title || "Product image"}
