@@ -50,7 +50,7 @@ export default function ProductName({ params }: { params: { productId: string }}
                   <div className="relative overflow-hidden rounded-lg">
                     {/* attach link by click on it redirect to dynamic link */}
                     <Link
-                      href={`/dynamic/${products.productId}-${relatedProduct.productId}`}
+                      href={`/productid/${products.productId}-${relatedProduct.productId}`}
                     >
                       <Image
                         src={relatedProduct.img[0]}

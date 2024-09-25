@@ -17,7 +17,7 @@ export default function Navbar() {
     { title: "About", path: "/about" },
     { title: "Shop", path: "/shop" },
     { title: "Categories", path: "/categories" },
-    { title: "Help", path: "/help" }
+    { title: "Help/Contact", path: "/contact" }
   ];
 
   const [user, setUser] = useState(1);
