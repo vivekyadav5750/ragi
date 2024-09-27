@@ -21,7 +21,7 @@ export default function Navbar() {
   ];
 
   const [user, setUser] = useState(1);
-  // console.log(setUser);
+  console.log(setUser);
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);

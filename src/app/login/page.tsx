@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+// import { CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/ui/input-otp";
@@ -13,6 +14,8 @@ export default function LoginCard() {
   const [otp, setOtp] = useState("");
   const [isUserRegistered, setIsUserRegistered] = useState(true); // Simulate if the user is registered or not
   const [step, setStep] = useState(1); // Step 1: Login form, Step 2: OTP, Step 3: Register
+
+  console.log(setStep);
 
   const handleOtpRequest = () => {
     // Simulate sending OTP
